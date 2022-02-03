@@ -16,12 +16,15 @@ afterEach(cleanup);
 
 describe("Modal component", () => {
   it("renders", () => {
-    // baseline render component test
+    render(<Modal onClose={mockToggleModal} currentPhoto={currentPhoto} />);
   });
 
   it("matches snapshot DOM node structure", () => {
-    // Arrange the snapshot - declare variables
-    // Assert the match
+    const { asFragment } = render(
+      <Modal onClose={mockToggleModal} currentPhoto={currentPhoto} />
+    );
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });
 
